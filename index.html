@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="description" content="巧虎手偶 育兒最強神助手｜原價NT$399 → 特價NT$299" />
+  <meta name="theme-color" content="#FF8E1F" />
+  <title>巧虎手偶｜育兒最強神助手</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* ==========================================================
+       Reset & Base
+       ========================================================== */
+    *,
+    *::before,
+    *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { overflow-x: hidden; }
+    body {
+      font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+      font-weight: 700;
+      color: #2B1A0A;
+      line-height: 1.6;
+      background: #FFE08A;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: 100%;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* スマホ最適化（max-width 430px、中央寄せ） */
+    .lp {
+      position: relative;
+      max-width: 430px;
+      margin: 0 auto;
+      padding-bottom: 88px;            /* 下部固定バーぶんの余白 */
+      background: #FFE08A;             /* 背景画像読み込み中のフォールバック */
+    }
+
+    /* ==========================================================
+       共通：背景画像セクション
+       ========================================================== */
+    .section {
+      position: relative;
+      background-image: url('images/パペットLP_背景.png');
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
+      padding: 56px 20px;
+      text-align: center;
+    }
+
+    /* セクションごとに少しだけ背景の見え方を変える（変化を出すため） */
+    .effects   { background-position: center; }
+    .features  { background-position: center; }
+    .cta       { background-position: center bottom; }
+
+    /* ==========================================================
+       共通：見出し・テキスト・ボタン
+       ========================================================== */
+    .title-main {
+      font-size: 39px;
+      font-weight: 900;
+      color: #2D1B00;
+      line-height: 1.4;
+      letter-spacing: 0.05em;
+      text-shadow:
+        2px 2px 0px rgba(255, 255, 255, 0.8),
+        4px 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    .title-sub {
+      font-size: 22px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.5;
+      text-shadow:
+        0 3px 0 #C73E00,
+        0 6px 14px rgba(140, 50, 0, 0.4);
+      margin-bottom: 24px;
+    }
+
+    .price-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 18px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 999px;
+      font-weight: 900;
+    }
+    .price-original {
+      text-decoration: line-through;
+      color: rgba(43, 26, 10, 0.55);
+      font-size: 16px;
+    }
+    .price-arrow {
+      color: #E54E00;
+      font-size: 18px;
+    }
+    .price-special {
+      color: #E54E00;
+      font-size: 22px;
+    }
+
+    .btn-img {
+      display: block;
+      width: min(90%, 340px);
+      height: auto;
+      margin: 20px auto 0;
+      padding: 0;
+      background: transparent;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      border-radius: 50px;
+      animation: borderGlow 2s ease-in-out infinite;
+    }
+    .btn-img img {
+      display: block;
+      width: 100%;
+      height: auto;
+      padding: 0;
+      background: transparent;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      border-radius: 50px;
+    }
+    .hero .btn-img { margin-top: 0; }   /* Hero は gap で間隔をとるため */
+
+    @keyframes borderGlow {
+      0%   { box-shadow: 0 0 0px rgba(255, 100, 50, 0.4); }
+      50%  { box-shadow: 0 0 16px rgba(255, 100, 50, 0.9); }
+      100% { box-shadow: 0 0 0px rgba(255, 100, 50, 0.4); }
+    }
+
+    /* ==========================================================
+       Section 1 : Hero
+       ========================================================== */
+    .hero {
+      min-height: 100vh;
+      padding: 16px 16px 48px;        /* 上は最上部寄せ、下は余白あり */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    .hero > * { margin: 0; }
+    .hero__upper {
+      font-size: 24px;                /* 上部・小さめ */
+      font-weight: 900;
+      color: #2D1B00;
+      letter-spacing: 0.05em;
+      text-shadow:
+        2px 2px 0px rgba(255, 255, 255, 0.8),
+        4px 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    .hero__puppet {
+      position: relative;
+      width: min(95vw, 420px);
+      margin: 0 auto;
+      display: block;
+      will-change: transform;
+    }
+    .hero__lower {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 6%;
+      text-align: center;
+      font-size: clamp(32px, 9vw, 42px);
+      font-weight: 900;
+      color: #2D1B00;
+      letter-spacing: 0.05em;
+      line-height: 1.2;
+      white-space: nowrap;
+      text-shadow:
+        3px 3px 0px rgba(255, 255, 255, 0.9),
+        5px 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ==========================================================
+       Section 2 : Effects
+       ========================================================== */
+    .effects { padding: 64px 0 56px; }
+    .effects .title-main { padding: 0 20px; margin-bottom: 24px; }
+
+    .effect {
+      margin-bottom: 36px;
+    }
+    .effect:last-child { margin-bottom: 0; }
+    .effect__media img {
+      width: 100%;
+      height: auto;
+    }
+    .effect__label {
+      display: inline-block;
+      margin: 14px auto 6px;
+      padding: 4px 22px;
+      font-size: 22px;
+      font-weight: 900;
+      color: #E54E00;
+      background: #fff;
+      border-radius: 999px;
+    }
+    .effect__text {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      padding: 0 28px;
+      line-height: 1.7;
+      text-shadow: 0 2px 6px rgba(140, 50, 0, 0.5);
+    }
+
+    /* ==========================================================
+       Section 3 : Features
+       ========================================================== */
+    .features { padding: 64px 16px 56px; }
+    .features .title-main { margin-bottom: 28px; }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      align-items: end;
+    }
+    .feature {
+      text-align: center;
+      will-change: transform, opacity;
+    }
+    .feature__media img {
+      width: 100%;
+      height: auto;
+    }
+    .feature__text {
+      margin-top: 8px;
+      font-size: 14px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.4;
+      text-shadow: 0 2px 5px rgba(140, 50, 0, 0.5);
+    }
+
+    /* ==========================================================
+       Section 4 : CTA
+       ========================================================== */
+    .cta {
+      padding: 64px 16px 72px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .cta__title {
+      font-size: 42px;
+      font-weight: 900;
+      color: #2D1B00;
+      line-height: 1.4;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+      text-shadow:
+        2px 2px 0px rgba(255, 255, 255, 0.8),
+        4px 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    .cta__puppet {
+      width: 90%;
+      margin: 8px auto;
+      will-change: transform;
+    }
+    .cta__price {
+      margin: 8px 0 4px;
+      font-size: 40px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: 0.02em;
+      font-variant-numeric: tabular-nums;
+      text-shadow:
+        0 4px 0 #C73E00,
+        0 6px 14px rgba(140, 50, 0, 0.45);
+    }
+    .cta__price-currency { font-size: 24px; margin-right: 4px; }
+
+    /* ==========================================================
+       下部固定バー
+       ========================================================== */
+    .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 430px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 14px;
+      background: linear-gradient(135deg, #FF6B35 0%, #FF9D2E 100%);
+      z-index: 100;
+      box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.18);
+    }
+    .bottom-bar__face {
+      flex-shrink: 0;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #fff;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .bottom-bar__face img {
+      width: 110%;
+      height: 110%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+    .bottom-bar__cta {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 14px;
+      background: #fff;
+      color: #E54E00;
+      font-size: 18px;
+      font-weight: 900;
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+      will-change: opacity;
+    }
+    .bottom-bar__cta-price {
+      font-size: 16px;
+      font-weight: 900;
+    }
+  </style>
+</head>
+<body>
+<div class="lp">
+
+  <!-- ============================================
+       Section 1 : Hero
+       ============================================ -->
+  <section class="section hero">
+    <p class="hero__upper js-load-fade">育兒最強神助手</p>
+
+    <div class="hero__puppet js-puppet-float js-hero-puppet">
+      <img src="images/パペット_背景透明_片手_transparent.png" alt="巧虎手偶" class="puppet-img" />
+      <p class="hero__lower js-load-fade">巧虎手偶，來了！</p>
+    </div>
+
+    <div class="js-load-fade">
+      <div class="price-row">
+        <span class="price-original">原價 NT$399</span>
+        <span class="price-arrow" aria-hidden="true">→</span>
+        <span class="price-special">特價 NT$299</span>
+      </div>
+    </div>
+
+    <a
+      href="https://store.benesse.com.tw/products/巧虎手偶"
+      class="btn-img js-load-fade js-btn"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="立即購買"
+    >
+      <img src="images/パペットLP_ボタン.png" alt="立即購買" />
+    </a>
+  </section>
+
+  <!-- ============================================
+       Section 2 : Effects
+       ============================================ -->
+  <section class="section effects">
+    <h2 class="title-main js-fade-up">
+      透過巧虎的示範<br />
+      孩子自然學得更快、更好！
+    </h2>
+
+    <div class="effect js-fade-up">
+      <div class="effect__media">
+        <img src="images/パペットを抱いて寝る子供.png" alt="安撫" />
+      </div>
+      <span class="effect__label">① 安撫</span>
+      <p class="effect__text">陪伴情緒，讓不安變安心。</p>
+    </div>
+
+    <div class="effect js-fade-up">
+      <div class="effect__media">
+        <img src="images/パペットハイタッチ.png" alt="鼓勵" />
+      </div>
+      <span class="effect__label">② 鼓勵</span>
+      <p class="effect__text">一句加油，孩子勇敢嘗試。</p>
+    </div>
+
+    <div class="effect js-fade-up">
+      <div class="effect__media">
+        <img src="images/パペット歯磨き.png" alt="建立生活習慣" />
+      </div>
+      <span class="effect__label">③ 建立生活習慣</span>
+      <p class="effect__text">刷牙洗手收玩具，跟著巧虎一起做。</p>
+    </div>
+  </section>
+
+  <!-- ============================================
+       Section 3 : Features
+       ============================================ -->
+  <section class="section features">
+    <h2 class="title-main js-fade-up">
+      專家精心設計<br />
+      讓孩子愛不釋手
+    </h2>
+
+    <div class="feature-grid">
+      <div class="feature js-fade-up">
+        <div class="feature__media">
+          <img src="images/パペット_背景透明_キャラだけ_transparent.png" alt="外型超吸睛" class="puppet-img" />
+        </div>
+        <p class="feature__text">外型<br />超吸睛</p>
+      </div>
+
+      <div class="feature js-fade-up">
+        <div class="feature__media">
+          <img src="images/パペット_背景透明_nade_transparent.png" alt="觸感柔軟" class="puppet-img" />
+        </div>
+        <p class="feature__text">觸感<br />柔軟佳</p>
+      </div>
+
+      <div class="feature js-fade-up">
+        <div class="feature__media">
+          <img src="images/パペット_背景透明_洗濯_transparent.png" alt="輕鬆可清洗" class="puppet-img" />
+        </div>
+        <p class="feature__text">輕鬆<br />可清洗</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       Section 4 : CTA
+       ============================================ -->
+  <section class="section cta">
+    <h2 class="cta__title js-fade-up">
+      讓教養變遊戲<br />
+      讓 no no 變我要
+    </h2>
+
+    <div class="cta__puppet js-puppet-float js-fade-up">
+      <img src="images/パペット_背景透明_びっくり_transparent.png" alt="巧虎手偶" class="puppet-img" />
+    </div>
+
+    <p class="cta__price js-fade-up">
+      <span class="cta__price-currency">NT$</span><span class="js-count" data-target="299">0</span>
+    </p>
+
+    <a
+      href="https://store.benesse.com.tw/products/巧虎手偶"
+      class="btn-img js-fade-up js-btn"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="立即購買"
+    >
+      <img src="images/パペットLP_ボタン.png" alt="立即購買" />
+    </a>
+  </section>
+
+</div>
+
+<!-- 下部固定バー（常時表示） -->
+<a
+  href="https://store.benesse.com.tw/products/巧虎手偶"
+  class="bottom-bar"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="立即購買 NT$299"
+>
+  <span class="bottom-bar__face">
+    <img src="images/パペット_背景透明_face_transparent.png" alt="" class="puppet-img" />
+  </span>
+  <span class="bottom-bar__cta js-btn">
+    立即購買
+    <span class="bottom-bar__cta-price">NT$299</span>
+  </span>
+</a>
+
+<!-- GSAP -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ==========================================================
+     1. Hero ロード時アニメーション：巧虎が下から飛び上がる
+     ========================================================== */
+  const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' }, delay: 0.2 });
+
+  heroTl
+    .from('.hero__upper', {
+      y: -24,
+      opacity: 0,
+      duration: 0.6,
+    })
+    .from('.js-hero-puppet', {
+      scale: 2.5,
+      opacity: 0,
+      duration: 1.2,
+      ease: 'back.out(1.4)',
+    }, '-=0.2')
+    .from('.hero__lower', {
+      y: 24,
+      opacity: 0,
+      duration: 0.6,
+    }, '-=0.5')
+    .from('.hero .price-row', {
+      scale: 0.6,
+      opacity: 0,
+      duration: 0.5,
+      ease: 'back.out(1.7)',
+    }, '-=0.3')
+    .from('.hero .btn-img', {
+      y: 24,
+      opacity: 0,
+      duration: 0.5,
+    }, '-=0.2');
+
+  /* ==========================================================
+     2. 巧虎は常にゆっくり上下に浮遊
+     ========================================================== */
+  gsap.to('.js-puppet-float', {
+    y: '+=12',
+    duration: 1.8,
+    repeat: -1,
+    yoyo: true,
+    ease: 'sine.inOut',
+  });
+
+  /* ==========================================================
+     3. ボタンの border 光りは CSS の @keyframes borderGlow で実装
+        （旧 opacity 点滅 GSAP は廃止）
+     ========================================================== */
+
+  /* ==========================================================
+     4. スクロールで各セクションがふわっと現れる
+     ========================================================== */
+  gsap.utils.toArray('.js-fade-up').forEach((el) => {
+    gsap.from(el, {
+      y: 40,
+      opacity: 0,
+      duration: 0.8,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 88%',
+        toggleActions: 'play none none reverse',
+      },
+    });
+  });
+
+  /* ==========================================================
+     5. CTA 価格カウントアップ（スクロールで発火）
+     ========================================================== */
+  const counterEl = document.querySelector('.js-count');
+  if (counterEl) {
+    const target = parseInt(counterEl.dataset.target, 10);
+    const counter = { val: 0 };
+    ScrollTrigger.create({
+      trigger: '.cta',
+      start: 'top 65%',
+      once: true,
+      onEnter: () => {
+        gsap.to(counter, {
+          val: target,
+          duration: 1.6,
+          ease: 'power2.out',
+          onUpdate() { counterEl.textContent = Math.floor(counter.val); },
+          onComplete() { counterEl.textContent = target; },
+        });
+      },
+    });
+  }
+</script>
+</body>
+</html>
